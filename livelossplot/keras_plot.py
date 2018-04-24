@@ -24,13 +24,13 @@ def loss2name(loss):
         return loss
 
 class PlotLossesKeras(Callback):
-    def __init__(self, figsize=None, cell_size=(6, 4), dynamic_x_axis=False, max_cols=2):
+    def __init__(self, figsize=None, cell_size=(6, 4), dynamic_x_axis=False, max_cols=2,save=False):
         self.figsize = figsize
         self.cell_size = cell_size
         self.dynamic_x_axis = dynamic_x_axis
         self.max_cols = max_cols
         self.metric2printable = metric2printable.copy()
-
+        self.save=save
         not_inline_warning()
 
     def on_train_begin(self, logs={}):
@@ -72,4 +72,4 @@ class PlotLossesKeras(Callback):
                   figsize=self.figsize, max_epoch=self.max_epoch,
                   max_cols=self.max_cols,
                   validation_fmt="val_{}",
-                  metric2title=self.metric2printable)
+                  metric2title=self.metric2printable,self.save)

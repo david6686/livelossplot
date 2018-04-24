@@ -2,6 +2,7 @@ from __future__ import division
 import warnings
 
 import matplotlib
+import os
 import matplotlib.pyplot as plt
 from IPython.display import clear_output
 
@@ -17,7 +18,7 @@ def not_inline_warning():
 def draw_plot(logs, metrics, figsize=None, max_epoch=None,
               max_cols=2,
               validation_fmt="val_{}",
-              metric2title={}):
+              metric2title={},save):
     clear_output(wait=True)
     plt.figure(figsize=figsize)
 
@@ -41,4 +42,9 @@ def draw_plot(logs, metrics, figsize=None, max_epoch=None,
         plt.legend(loc='center right')
 
     plt.tight_layout()
-    plt.show();
+    if (not os.path.exists(/'/lossplot')):
+        os.mkdir('lossplot')
+    if(save==True):
+        plt.savefig('/lossplot/plot.png')
+    else:
+        plt.show()
