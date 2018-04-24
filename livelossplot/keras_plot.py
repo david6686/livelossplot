@@ -68,7 +68,7 @@ class PlotLossesKeras(Callback):
     def on_epoch_end(self, epoch, logs={}):
         self.logs.append(logs.copy())
 
-        draw_plot(self.logs, self.base_metrics,,self.save,
+        draw_plot(self.logs, self.base_metrics,self.save,
                   figsize=self.figsize, max_epoch=self.max_epoch,
                   max_cols=self.max_cols,
                   validation_fmt="val_{}",
