@@ -15,10 +15,10 @@ def not_inline_warning():
 # * object-oriented API
 # * only integer ticks
 
-def draw_plot(logs, metrics, figsize=None, max_epoch=None,
+def draw_plot(logs, metrics,save, figsize=None, max_epoch=None,
               max_cols=2,
               validation_fmt="val_{}",
-              metric2title={},save):
+              metric2title={}):
     clear_output(wait=True)
     plt.figure(figsize=figsize)
 
