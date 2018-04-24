@@ -39,12 +39,11 @@ def draw_plot(logs, metrics,save, figsize=None, max_epoch=None,
 
         plt.title(metric2title.get(metric, metric))
         plt.xlabel('epoch')
-        plt.legend(loc='center right')
+        plt.legend(loc='best')
 
-    plt.tight_layout()
-    if (not os.path.exists(/'/lossplot')):
-        os.mkdir('lossplot')
     if(save==True):
-        plt.savefig('/lossplot/plot.png')
+        if (not os.path.exists('lossplot')):
+            os.mkdir('lossplot')
+        plt.savefig('lossplot/plot.png')
     else:
         plt.show()
